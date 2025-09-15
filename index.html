@@ -10,13 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b0d13;            /* deep navy */
-      --card:#0f1420;          /* slightly lighter */
-      --text:#e7ecf3;          /* off-white */
-      --muted:#a7b0c0;         /* muted text */
-      --brand:#6ce3ff;         /* electric teal */
-      --brand-2:#8b5cf6;       /* violet */
-      --accent:#00d4a6;        /* mint */
+      --bg:#0b0d13;
+      --card:#0f1420;
+      --text:#e7ecf3;
+      --muted:#a7b0c0;
+      --brand:#6ce3ff;
+      --brand-2:#8b5cf6;
+      --accent:#00d4a6;
       --ring:rgba(108,227,255,.5);
       --border:#1e2636;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
@@ -30,19 +30,14 @@
     }
     a{color:var(--text); text-decoration:none}
     .container{max-width:1120px;margin:0 auto;padding:0 20px}
-
-    /* NAV */
     .nav{position:sticky;top:0;z-index:40;background:rgba(11,13,19,.7);backdrop-filter: blur(8px);border-bottom:1px solid var(--border)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
     .brand .logo{width:28px;height:28px;border-radius:8px;background: conic-gradient(from 210deg, var(--brand), var(--brand-2), var(--accent)); box-shadow:0 6px 18px rgba(108,227,255,.35)}
     .nav-links{display:flex;gap:20px;align-items:center}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:12px;border:1px solid var(--border);background:linear-gradient(180deg, #141a27, #0f1420); color:var(--text); box-shadow:var(--shadow);
-      transition:.2s transform ease, .2s box-shadow ease, .2s background ease}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:12px;border:1px solid var(--border);background:linear-gradient(180deg, #141a27, #0f1420); color:var(--text); box-shadow:var(--shadow); transition:.2s transform ease, .2s box-shadow ease, .2s background ease}
     .btn:hover{transform:translateY(-1px); box-shadow:0 16px 40px rgba(0,0,0,.45)}
     .btn.primary{border:1px solid transparent;background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#051017; font-weight:700}
-
-    /* HERO */
     .hero{padding:72px 0 36px}
     .hero-grid{display:grid;grid-template-columns: 1.1fr .9fr; gap:36px}
     .eyebrow{color:var(--brand);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:12px}
@@ -51,41 +46,28 @@
     .hero-cta{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
     .card{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.0)); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
     .sparkle{width:100%;aspect-ratio:4/3;border-radius:var(--radius);background: radial-gradient(120px 120px at 30% 30%, rgba(108,227,255,.3), transparent 60%), radial-gradient(150px 120px at 70% 60%, rgba(139,92,246,.35), transparent 60%), linear-gradient(180deg, #0b0f18, #0f1420); border:1px solid var(--border)}
-
-    /* FEATURES */
     .section{padding:56px 0}
     .section h2{font-size: clamp(24px, 4vw, 36px); margin:0 0 10px}
     .muted{color:var(--muted)}
     .grid{display:grid; gap:16px}
     .features{grid-template-columns:repeat(3,minmax(0,1fr))}
     .feature .title{font-weight:700;margin-bottom:6px}
-
-    /* HOW IT WORKS */
     .how{grid-template-columns:repeat(3,minmax(0,1fr))}
     .step{position:relative;padding-left:14px}
     .step:before{content:attr(data-step); position:absolute; left:-6px; top:6px; font-weight:800; color:var(--brand)}
-
-    /* PRICING */
     .pricing{grid-template-columns:repeat(3,minmax(0,1fr))}
     .price .tag{font-size:13px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
     .price .value{font-size:36px;font-weight:800;margin:8px 0}
     .price ul{padding-left:18px; margin: 10px 0 0}
-
-    /* EXAMPLES */
     .examples{grid-template-columns:repeat(2,minmax(0,1fr))}
-
-    /* CONTACT */
     form{display:flex;gap:10px;flex-wrap:wrap}
     input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#0b0f18;color:var(--text);font:inherit}
     input:focus,textarea:focus{outline:none; box-shadow:0 0 0 6px var(--ring)}
     footer{padding:28px 0;color:var(--muted);border-top:1px solid var(--border)}
-
-    /* Responsive */
     @media (max-width: 900px){.hero-grid{grid-template-columns:1fr}.features,.how,.pricing,.examples{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <!-- NAV -->
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top"><span class="logo"></span> <span>MerchAI</span></a>
@@ -99,7 +81,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <main id="top" class="hero">
     <div class="container hero-grid">
       <div>
@@ -118,7 +99,6 @@
     </div>
   </main>
 
-  <!-- WHAT WE DO -->
   <section id="features" class="section">
     <div class="container">
       <h2>What we do</h2>
@@ -140,7 +120,6 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
   <section id="how" class="section" style="padding-top:0">
     <div class="container">
       <h2>How it works (simple)</h2>
@@ -161,7 +140,6 @@
     </div>
   </section>
 
-  <!-- EXAMPLES -->
   <section id="examples" class="section">
     <div class="container">
       <h2>Plain‑English examples</h2>
@@ -178,7 +156,6 @@
     </div>
   </section>
 
-  <!-- PRICING -->
   <section id="pricing" class="section">
     <div class="container">
       <h2>Pricing</h2>
@@ -219,13 +196,11 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="container">
       <h2>Contact</h2>
       <p class="muted">Tell us about your store and we’ll reply within a day.</p>
       <div class="card">
-        <!-- Replace the action URL with your Formspree endpoint or backend -->
         <form action="https://formspree.io/f/your-id" method="POST">
           <input name="name" placeholder="Name" required>
           <input name="email" type="email" placeholder="Email" required>
@@ -234,9 +209,13 @@
         </form>
       </div>
 
+      <!-- Calendly Embed -->
       <div id="book" class="card" style="margin-top:14px">
-        <strong>Prefer to book a call?</strong>
-        <p class="muted">Drop in your Calendly link here or embed a scheduler.</p>
+        <strong>Book a call with us</strong>
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/merchai"
+             style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
       </div>
     </div>
   </section>
