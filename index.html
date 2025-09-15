@@ -3,52 +3,248 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title><!--AGENT:TITLE-->MerchAI — AI-Powered Product Search & Merchandising<!--/AGENT:TITLE--></title>
-  <meta name="description" content="<!--AGENT:DESCRIPTION-->MerchAI helps brands boost onsite search, conversion, and AOV with AI-powered merchandising, retrieval optimization, and data-driven experiments.<!--/AGENT:DESCRIPTION-->" />
-  <link rel="canonical" href="https://usemerchai.com/" />
-  <meta property="og:title" content="<!--AGENT:OGTITLE-->MerchAI — AI-Powered Product Search & Merchandising<!--/AGENT:OGTITLE-->" />
-  <meta property="og:description" content="<!--AGENT:OGDESC-->Boost conversion with smarter search, retrieval, and merchandising. Free brand evaluation + 30-min tips session.<!--/AGENT:OGDESC-->" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://usemerchai.com/" />
-  <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
-  <script defer src="https://cdn.tailwindcss.com"></script>
+  <title>MerchAI — Turn search into sales</title>
+  <meta name="description" content="We tune your store's search and merchandising with AI so customers find the right products faster and buy more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0d13;            /* deep navy */
+      --card:#0f1420;          /* slightly lighter */
+      --text:#e7ecf3;          /* off-white */
+      --muted:#a7b0c0;         /* muted text */
+      --brand:#6ce3ff;         /* electric teal */
+      --brand-2:#8b5cf6;       /* violet */
+      --accent:#00d4a6;        /* mint */
+      --ring:rgba(108,227,255,.5);
+      --border:#1e2636;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; color:var(--text); background: radial-gradient(1200px 600px at 80% -10%, rgba(139,92,246,.25), transparent 60%), radial-gradient(1000px 500px at -10% 10%, rgba(108,227,255,.25), transparent 60%), var(--bg);
+      line-height:1.55;
+    }
+    a{color:var(--text); text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:40;background:rgba(11,13,19,.7);backdrop-filter: blur(8px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+    .brand .logo{width:28px;height:28px;border-radius:8px;background: conic-gradient(from 210deg, var(--brand), var(--brand-2), var(--accent)); box-shadow:0 6px 18px rgba(108,227,255,.35)}
+    .nav-links{display:flex;gap:20px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:12px;border:1px solid var(--border);background:linear-gradient(180deg, #141a27, #0f1420); color:var(--text); box-shadow:var(--shadow);
+      transition:.2s transform ease, .2s box-shadow ease, .2s background ease}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 16px 40px rgba(0,0,0,.45)}
+    .btn.primary{border:1px solid transparent;background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#051017; font-weight:700}
+
+    /* HERO */
+    .hero{padding:72px 0 36px}
+    .hero-grid{display:grid;grid-template-columns: 1.1fr .9fr; gap:36px}
+    .eyebrow{color:var(--brand);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:12px}
+    h1{font-size: clamp(32px, 6vw, 56px); line-height:1.05; margin:10px 0 12px}
+    .sub{font-size: clamp(16px, 2.2vw, 20px); color: var(--muted)}
+    .hero-cta{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.0)); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .sparkle{width:100%;aspect-ratio:4/3;border-radius:var(--radius);background: radial-gradient(120px 120px at 30% 30%, rgba(108,227,255,.3), transparent 60%), radial-gradient(150px 120px at 70% 60%, rgba(139,92,246,.35), transparent 60%), linear-gradient(180deg, #0b0f18, #0f1420); border:1px solid var(--border)}
+
+    /* FEATURES */
+    .section{padding:56px 0}
+    .section h2{font-size: clamp(24px, 4vw, 36px); margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .grid{display:grid; gap:16px}
+    .features{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .feature .title{font-weight:700;margin-bottom:6px}
+
+    /* HOW IT WORKS */
+    .how{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .step{position:relative;padding-left:14px}
+    .step:before{content:attr(data-step); position:absolute; left:-6px; top:6px; font-weight:800; color:var(--brand)}
+
+    /* PRICING */
+    .pricing{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .price .tag{font-size:13px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+    .price .value{font-size:36px;font-weight:800;margin:8px 0}
+    .price ul{padding-left:18px; margin: 10px 0 0}
+
+    /* EXAMPLES */
+    .examples{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+    /* CONTACT */
+    form{display:flex;gap:10px;flex-wrap:wrap}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#0b0f18;color:var(--text);font:inherit}
+    input:focus,textarea:focus{outline:none; box-shadow:0 0 0 6px var(--ring)}
+    footer{padding:28px 0;color:var(--muted);border-top:1px solid var(--border)}
+
+    /* Responsive */
+    @media (max-width: 900px){.hero-grid{grid-template-columns:1fr}.features,.how,.pricing,.examples{grid-template-columns:1fr}}
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-  <header class="p-6 bg-white shadow">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <span class="font-bold text-lg">MerchAI</span>
-      <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded"> <!--AGENT:CTA-->Free Evaluation<!--/AGENT:CTA--></a>
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top"><span class="logo"></span> <span>MerchAI</span></a>
+      <nav class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#features">What we do</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a class="btn primary" href="#book">Free Evaluation</a>
+      </nav>
     </div>
   </header>
-  <main class="max-w-6xl mx-auto p-6">
-    <section>
-      <h1 class="text-4xl font-bold"><!--AGENT:HERO-->Turn <span class="text-blue-600">search</span> into sales with MerchAI<!--/AGENT:HERO--></h1>
-      <p class="mt-4"><!--AGENT:SUBHEAD-->We optimize your site’s product search and merchandising using AI—so customers find the right products faster, conversion rates climb, and AOV follows.<!--/AGENT:SUBHEAD--></p>
-    </section>
-    <section id="services" class="mt-10">
-      <h2 class="text-2xl font-bold">What we do</h2>
-      <!--AGENT:SERVICES-->
-      <ul class="list-disc ml-6 mt-2">
-        <li>Retrieval & Relevance Tuning</li>
-        <li>AI Merchandising Strategy</li>
-        <li>Experimentation & Analytics</li>
-      </ul>
-      <!--/AGENT:SERVICES-->
-    </section>
-    <section id="contact" class="mt-10">
-      <h2 class="text-2xl font-bold">Contact</h2>
-      <!--AGENT:CONTACT-->
-      <form action="https://formspree.io/f/your-form-id" method="POST" class="mt-4">
-        <input type="text" name="name" placeholder="Name" class="border p-2 block w-full mb-2" required>
-        <input type="email" name="email" placeholder="Email" class="border p-2 block w-full mb-2" required>
-        <button class="bg-green-600 text-white px-4 py-2 rounded">Submit</button>
-      </form>
-      <!--/AGENT:CONTACT-->
-    </section>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">AI product discovery</div>
+        <h1>Turn search into sales</h1>
+        <p class="sub">We tune your store’s search and merchandising with AI — so customers find the right products faster, conversion rates climb, and AOV follows.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#book">Get a free evaluation</a>
+          <a class="btn" href="#examples">See simple examples</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="sparkle" aria-hidden="true"></div>
+        <p class="muted" style="margin:10px 0 0">Plug-in help for Shopify/BigCommerce/custom stacks. No rebuild required.</p>
+      </div>
+    </div>
   </main>
-  <footer class="p-6 text-center bg-gray-100 mt-10">
-    © <span id="year"></span> MerchAI — usemerchai.com
+
+  <!-- WHAT WE DO -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2>What we do</h2>
+      <p class="muted">Three levers that reliably move revenue.</p>
+      <div class="grid features">
+        <div class="card feature">
+          <div class="title">Retrieval & Relevance Tuning</div>
+          <p class="muted">Cleaner indexing, smarter synonyms, typo tolerance, and ranking tuned to your catalog and customers.</p>
+        </div>
+        <div class="card feature">
+          <div class="title">AI Merchandising Strategy</div>
+          <p class="muted">Rules + AI to spotlight best‑sellers, newness, and margin‑positive bundles in search and category pages.</p>
+        </div>
+        <div class="card feature">
+          <div class="title">Experimentation & Analytics</div>
+          <p class="muted">A/B tests that show lift in revenue per visitor, not just clicks. Clear weekly reports.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="section" style="padding-top:0">
+    <div class="container">
+      <h2>How it works (simple)</h2>
+      <div class="grid how">
+        <div class="card step" data-step="1">
+          <strong>Free evaluation.</strong>
+          <p class="muted">We review your site and run a quick search quality check. You get a short scorecard and specific fixes.</p>
+        </div>
+        <div class="card step" data-step="2">
+          <strong>Fast setup.</strong>
+          <p class="muted">We implement low‑risk changes (synonyms, boosts, filters, redirects) and set up experiments. No code or downtime.</p>
+        </div>
+        <div class="card step" data-step="3">
+          <strong>Ongoing tuning.</strong>
+          <p class="muted">We watch queries weekly and keep your search terms fresh so wins stick and compound.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAMPLES -->
+  <section id="examples" class="section">
+    <div class="container">
+      <h2>Plain‑English examples</h2>
+      <div class="grid examples">
+        <div class="card">
+          <strong>“Brown shoulder bag” → Shows brown handbags first</strong>
+          <p class="muted">We align synonyms (bag ↔ tote ↔ satchel), color groups, and shoulder‑fit attributes so results match what shoppers mean.</p>
+        </div>
+        <div class="card">
+          <strong>“Gift under $50” → Curated, in‑stock items</strong>
+          <p class="muted">Price filters, inventory signals, and category boosts combine so budget shoppers see great picks instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <h2>Pricing</h2>
+      <p class="muted">Simple, flexible — we also maintain the upkeep of your search terms.</p>
+      <div class="grid pricing">
+        <div class="card price">
+          <div class="tag">Starter</div>
+          <div class="value">$50 / product</div>
+          <p class="muted">For small catalogs testing the waters.</p>
+          <ul>
+            <li>Baseline search audit</li>
+            <li>Top synonyms & redirects</li>
+            <li>Monthly check‑in</li>
+          </ul>
+        </div>
+        <div class="card price" style="border:2px solid var(--brand);box-shadow:0 0 0 6px rgba(108,227,255,.08)">
+          <div class="tag">Growth (most popular)</div>
+          <div class="value">$150 / product</div>
+          <p class="muted">Deeper tuning + experiments.</p>
+          <ul>
+            <li>Ranking tweaks and boosts</li>
+            <li>Weekly query review</li>
+            <li>A/B testing and reports</li>
+          </ul>
+        </div>
+        <div class="card price">
+          <div class="tag">Scale</div>
+          <div class="value">$350 / product</div>
+          <p class="muted">For large catalogs needing hands‑on help.</p>
+          <ul>
+            <li>Custom rules & playbooks</li>
+            <li>Merchandising bundles</li>
+            <li>Dedicated support</li>
+          </ul>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:12px">Need a flat fee or enterprise SOW? <a href="#contact">Contact us</a>.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="muted">Tell us about your store and we’ll reply within a day.</p>
+      <div class="card">
+        <!-- Replace the action URL with your Formspree endpoint or backend -->
+        <form action="https://formspree.io/f/your-id" method="POST">
+          <input name="name" placeholder="Name" required>
+          <input name="email" type="email" placeholder="Email" required>
+          <textarea name="message" rows="4" placeholder="What do you sell? Any search pain points?" required></textarea>
+          <button class="btn primary" type="submit">Submit</button>
+        </form>
+      </div>
+
+      <div id="book" class="card" style="margin-top:14px">
+        <strong>Prefer to book a call?</strong>
+        <p class="muted">Drop in your Calendly link here or embed a scheduler.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2025 MerchAI — usemerchai.com
+    </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
